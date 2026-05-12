@@ -97,6 +97,6 @@ public class CustomFishingHookRenderer {
         float dy = (((y * ((endFrac * endFrac) + endFrac)) * 0.5f) + 0.25f) - vy;
         float dz = (z * endFrac) - vz;
         float length = Mth.sqrt((dx * dx) + (dy * dy) + (dz * dz));
-        vertexConsumer.vertex(pose.pose(), vx, vy, vz).color(red, green, blue, 1.0f).normal(pose.normal(), dx / length, dy / length, dz / length).endVertex();
+        vertexConsumer.vertex(pose.pose(), vx, vy, vz).color(red, green, blue, 1.0f).normal(pose, dx / length, dy / length, dz / length).endVertex();
     }
 }

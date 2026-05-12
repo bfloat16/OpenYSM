@@ -5,6 +5,7 @@ import com.elfmcys.yesstevemodel.geckolib3.core.molang.context.IContext;
 import com.elfmcys.yesstevemodel.geckolib3.core.molang.funciton.ContextFunction;
 import com.elfmcys.yesstevemodel.mixin.client.ArrowEntityAccessor;
 import com.elfmcys.yesstevemodel.molang.runtime.ExecutionContext;
+import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffect;
@@ -26,7 +27,7 @@ public class EffectLevel extends ContextFunction<Entity> {
         for (int i = 0; i < arguments.size(); i++) {
             ResourceLocation effectId = arguments.getResourceLocation(context, i);
             if (effectId != null) {
-                MobEffect mobEffect = BuiltInRegistries.MOB_EFFECT.get(effectId);
+                Holder<MobEffect> mobEffect = BuiltInRegistries.MOB_EFFECT.getHolder(effectId).orElse(null);
                 if (mobEffect != null) {
                     if (context.entity().geoInstance() instanceof PlayerCapability cap
                             && !cap.isLocalPlayerModel()) {
@@ -43,8 +44,8 @@ public class EffectLevel extends ContextFunction<Entity> {
                         }
 
                         for (MobEffectInstance mobEffectInstance : ((ArrowEntityAccessor)((IContext<?>)context.entity()).entity())
-                                .getEffects()) {
-                            if (mobEffectInstance.getEffect() == mobEffect) {
+                                .invokeGetPotionContents().getAllEffects()) {
+                            if (mobEffectInstance.getEffect().equals(mobEffect)) {
                                 effects += mobEffectInstance.getAmplifier() + 1;
                                 break;
                             }

@@ -24,6 +24,9 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.scores.Objective;
 import net.minecraft.world.scores.Scoreboard;
+import net.minecraft.world.scores.DisplaySlot;
+import net.minecraft.world.scores.ReadOnlyScoreInfo;
+import net.minecraft.network.chat.numbers.StyledFormat;
 import net.minecraft.world.scores.Team;
 import org.jetbrains.annotations.NotNull;
 
@@ -89,7 +92,7 @@ public class CustomPlayerRenderer extends GeoReplacedEntityRenderer<Player, Cust
         return this.currentTexture == null ? PlayerCapability.get(player).map((cap) -> cap.getTextureLocation()).orElse(MissingTextureAtlasSprite.getLocation()) : this.currentTexture;
     }
 
-    public void renderNameTag(Player player, Component component, PoseStack poseStack, MultiBufferSource multiBufferSource, int i) {
+    public void renderNameTag(Player player, Component component, PoseStack poseStack, MultiBufferSource multiBufferSource, int i, float f) {
         Scoreboard scoreboard;
         Objective displayObjective;
         if (PlayerPreviewEntity.isPreviewPlayer(player)) {
@@ -97,17 +100,19 @@ public class CustomPlayerRenderer extends GeoReplacedEntityRenderer<Player, Cust
         }
         double dDistanceToSqr = this.entityRenderDispatcher.distanceToSqr(player);
         poseStack.pushPose();
-        if (dDistanceToSqr < 100.0d && (displayObjective = (scoreboard = player.getScoreboard()).getDisplayObjective(2)) != null) {
-            super.renderNameTag(player, Component.literal(Integer.toString(scoreboard.getOrCreatePlayerScore(player.getScoreboardName(), displayObjective).getScore())).append(" ").append(displayObjective.getDisplayName()), poseStack, multiBufferSource, i);
+        if (dDistanceToSqr < 100.0d && (displayObjective = (scoreboard = player.getScoreboard()).getDisplayObjective(DisplaySlot.BELOW_NAME)) != null) {
+            ReadOnlyScoreInfo scoreInfo = scoreboard.getPlayerScoreInfo(player, displayObjective);
+            Component scoreComponent = ReadOnlyScoreInfo.safeFormatValue(scoreInfo, displayObjective.numberFormatOrDefault(StyledFormat.NO_STYLE));
+            super.renderNameTag(player, Component.empty().append(scoreComponent).append(" ").append(displayObjective.getDisplayName()), poseStack, multiBufferSource, i, f);
             poseStack.translate(0.0d, 0.25875d, 0.0d);
         }
-        super.renderNameTag(player, component, poseStack, multiBufferSource, i);
+        super.renderNameTag(player, component, poseStack, multiBufferSource, i, f);
         poseStack.popPose();
     }
 
     @Override
-    public void setupRotations(Player player, PoseStack poseStack, float ageInTicks, float rotationYaw, float partialTicks) {
-        super.setupRotations(player, poseStack, ageInTicks, rotationYaw, partialTicks);
+    public void setupRotations(Player player, PoseStack poseStack, float ageInTicks, float rotationYaw, float partialTicks, float scale) {
+        super.setupRotations(player, poseStack, ageInTicks, rotationYaw, partialTicks, scale);
         Entity vehicle = player.getVehicle();
         if (TouhouLittleMaidCompat.isSimplePlanesEntity(vehicle) || TouhouLittleMaidCompat.isImmersiveAircraftEntity(vehicle)) {
             poseStack.translate(0.0d, 0.5d, 0.0d);

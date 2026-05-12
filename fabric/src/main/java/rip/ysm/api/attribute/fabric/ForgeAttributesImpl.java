@@ -1,5 +1,6 @@
 package rip.ysm.api.attribute.fabric;
 
+import net.minecraft.core.Holder;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import org.jetbrains.annotations.Nullable;
 
@@ -9,32 +10,32 @@ public final class ForgeAttributesImpl {
     }
 
     @Nullable
-    public static Attribute blockReach() {
+    public static Holder<Attribute> blockReach() {
         return null;
     }
 
     @Nullable
-    public static Attribute entityReach() {
+    public static Holder<Attribute> entityReach() {
         return null;
     }
 
     @Nullable
-    public static Attribute swimSpeed() {
+    public static Holder<Attribute> swimSpeed() {
         return null;
     }
 
     @Nullable
-    public static Attribute entityGravity() {
+    public static Holder<Attribute> entityGravity() {
         return null;
     }
 
     @Nullable
-    public static Attribute stepHeightAddition() {
+    public static Holder<Attribute> stepHeightAddition() {
         return null;
     }
 
     @Nullable
-    public static Attribute nametagDistance() {
+    public static Holder<Attribute> nametagDistance() {
         return null;
     }
 }

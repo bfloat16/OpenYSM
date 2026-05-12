@@ -374,19 +374,19 @@ public class YSMBinding extends ContextBinding {
     }
 
     private static Object dumpEffects(IContext<Entity> context) {
-        Collection<MobEffectInstance> activeEffects;
+        Iterable<MobEffectInstance> activeEffects;
         if (!context.isDebugMode()) {
             return null;
         }
         if (context.entity() instanceof Arrow) {
-            activeEffects = ((ArrowEntityAccessor) context.entity()).getEffects();
+            activeEffects = ((ArrowEntityAccessor) context.entity()).invokeGetPotionContents().getAllEffects();
         } else if (context.entity() instanceof LivingEntity) {
             activeEffects = ((LivingEntity) context.entity()).getActiveEffects();
         } else {
             return null;
         }
         for (MobEffectInstance mobEffectInstance : activeEffects) {
-            context.logWarningComponent(Component.literal("Effect: display ").append(ComponentUtils.copyOnClickText(mobEffectInstance.getEffect().getDisplayName().getString(99))).append(Component.literal("  name ").append(ComponentUtils.copyOnClickText(BuiltInRegistries.MOB_EFFECT.getKey(mobEffectInstance.getEffect()).toString()))).append("  lv=").append(String.valueOf(mobEffectInstance.getAmplifier() + 1)));
+            context.logWarningComponent(Component.literal("Effect: display ").append(ComponentUtils.copyOnClickText(mobEffectInstance.getEffect().value().getDisplayName().getString(99))).append(Component.literal("  name ").append(ComponentUtils.copyOnClickText(BuiltInRegistries.MOB_EFFECT.getKey(mobEffectInstance.getEffect().value()).toString()))).append("  lv=").append(String.valueOf(mobEffectInstance.getAmplifier() + 1)));
         }
         return null;
     }

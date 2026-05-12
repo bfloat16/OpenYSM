@@ -1,8 +1,8 @@
 package com.elfmcys.yesstevemodel.audio;
 
-import com.mojang.blaze3d.audio.OggAudioStream;
 import io.netty.buffer.ByteBufInputStream;
 import io.netty.buffer.Unpooled;
+import net.minecraft.client.sounds.JOrbisAudioStream;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.lwjgl.BufferUtils;
@@ -17,7 +17,7 @@ public class OggVorbisAudioStream implements IAudioStreamSupport {
 
     private static final ByteBuffer EMPTY_BUFFER = BufferUtils.createByteBuffer(0);
 
-    private final OggAudioStream oggStream;
+    private final JOrbisAudioStream oggStream;
 
     private final AudioFormat audioFormat;
 
@@ -29,7 +29,7 @@ public class OggVorbisAudioStream implements IAudioStreamSupport {
     private boolean isEndOfStream;
 
     public OggVorbisAudioStream(ByteBuffer byteBuffer, @Nullable AudioCacheBuilder cacheBuilder) throws UnsupportedAudioFileException, IOException {
-        this.oggStream = new OggAudioStream(new ByteBufInputStream(Unpooled.wrappedBuffer(byteBuffer)));
+        this.oggStream = new JOrbisAudioStream(new ByteBufInputStream(Unpooled.wrappedBuffer(byteBuffer)));
         if (this.oggStream.getFormat().getChannels() != 1 && this.oggStream.getFormat().getChannels() != 2) {
             throw new UnsupportedAudioFileException();
         }
