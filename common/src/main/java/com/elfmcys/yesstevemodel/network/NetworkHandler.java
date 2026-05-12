@@ -58,7 +58,11 @@ public final class NetworkHandler {
         return connection != null && ((ConnectionAccessor) connection).ysm$getChannel() != null && VERSION.equals(((ConnectionAccessor) connection).ysm$getChannel().attr(CHANNEL_VERSION_KEY).get());
     }
 
+    private static volatile boolean initialized = false;
+
     public static void init() {
+        if (initialized) return;
+        initialized = true;
         YSMChannel.init(CHANNEL_ID, VERSION);
         YSMChannel.register(1, S2CModelSyncPayload.class, S2CModelSyncPayload::encode, S2CModelSyncPayload::decode, S2CModelSyncPayload::handle, PacketDirection.PLAY_TO_CLIENT);
         YSMChannel.register(2, C2SModelSyncPayload.class, C2SModelSyncPayload::encode, C2SModelSyncPayload::decode, C2SModelSyncPayload::handle, PacketDirection.PLAY_TO_SERVER);

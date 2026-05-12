@@ -1,0 +1,15 @@
+package rip.ysm.compat.touhoulittlemaid.neoforge;
+
+import com.elfmcys.yesstevemodel.geckolib3.geo.animated.AnimatedGeoBone;
+import com.elfmcys.yesstevemodel.geckolib3.geo.animated.AnimatedGeoModel;
+
+public final class TouhouMaidBoneProcessorImpl {
+
+    public static Object createLocationBone(AnimatedGeoBone bone) {
+        return null;
+    }
+
+    public static Object createLocationModel(AnimatedGeoModel model) {
+        return null;
+    }
+}

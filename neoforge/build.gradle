@@ -1,0 +1,67 @@
+plugins {
+    id 'com.github.johnrengelman.shadow'
+}
+
+architectury {
+    platformSetupLoomIde()
+    neoForge()
+}
+
+configurations {
+    common {
+        canBeResolved = true
+        canBeConsumed = false
+    }
+    compileClasspath.extendsFrom common
+    runtimeClasspath.extendsFrom common
+    developmentNeoForge.extendsFrom common
+
+    shadowBundle {
+        canBeResolved = true
+        canBeConsumed = false
+    }
+}
+
+dependencies {
+    neoForge "net.neoforged:neoforge:$rootProject.neoforge_version"
+
+    modImplementation "dev.architectury:architectury-neoforge:$rootProject.architectury_api_version"
+    include "dev.architectury:architectury-neoforge:$rootProject.architectury_api_version"
+
+    modImplementation "maven.modrinth:forge-config-api-port:$rootProject.forge_config_api_port_neoforge_version"
+    include "maven.modrinth:forge-config-api-port:$rootProject.forge_config_api_port_neoforge_version"
+
+    forgeRuntimeLibrary "com.github.OpenYSM:ImageStream:-SNAPSHOT"
+    include "com.github.OpenYSM:ImageStream:-SNAPSHOT"
+
+    modCompileOnly ":carryon-neoforge:1.20.6-2.1.4.20"
+    modCompileOnly ":cosmeticarmorreworked:1.20.6-v1a-neoforge"
+    modCompileOnly ":curios-neoforge:8.1.0+1.20.6"
+    modCompileOnly ":elytraslot-neoforge:8.0.0+1.20.6"
+    modCompileOnly ":firstperson-neoforge:2.7.1-mc1.20.6"
+    modCompileOnly ":geckolib-neoforge:1.20.6-4.5.4"
+    modCompileOnly ":Jade:1.20.6-NeoForge-14.2.3"
+
+    common(project(path: ':common', configuration: 'namedElements')) { transitive false }
+    shadowBundle project(path: ':common', configuration: 'transformProductionNeoForge')
+}
+
+processResources {
+    inputs.property 'version', project.version
+
+    filesMatching('META-INF/neoforge.mods.toml') {
+        expand version: project.version
+    }
+
+    from(project(':common').sourceSets.main.resources)
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+}
+
+shadowJar {
+    configurations = [project.configurations.shadowBundle]
+    archiveClassifier = 'dev-shadow'
+}
+
+remapJar {
+    input.set shadowJar.archiveFile
+}

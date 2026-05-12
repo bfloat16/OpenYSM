@@ -375,7 +375,6 @@ public final class ServerModelManager {
         try {
             byte[] packetBytes = new byte[data.remaining()];
             data.get(packetBytes);
-            System.out.println("Server Handle packet, step=" + state.step + ", length=" + packetBytes.length);
 
             if (state.step == 1) {
                 // 等待Pong

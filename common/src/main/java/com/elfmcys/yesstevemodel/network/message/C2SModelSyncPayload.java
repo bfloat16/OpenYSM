@@ -15,12 +15,13 @@ public class C2SModelSyncPayload {
     }
 
     public static void encode(C2SModelSyncPayload message, FriendlyByteBuf buf) {
-        buf.writeBytes(message.data);
+        buf.writeBytes(message.data.duplicate());
     }
 
     public static C2SModelSyncPayload decode(FriendlyByteBuf buf) {
         ByteBuffer data = ByteBuffer.allocateDirect(buf.readableBytes());
         buf.readBytes(data);
+        data.flip();
         return new C2SModelSyncPayload(data);
     }
 

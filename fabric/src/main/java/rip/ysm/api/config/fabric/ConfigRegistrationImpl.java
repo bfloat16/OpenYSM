@@ -9,7 +9,7 @@ public final class ConfigRegistrationImpl {
     private ConfigRegistrationImpl() {
     }
 
-    public static void register(String modId, ModConfig.Type type, ForgeConfigSpec spec) {
-        ForgeConfigRegistry.INSTANCE.register(modId, type, spec);
+    public static void register(String modId, String type, ForgeConfigSpec spec) {
+        ForgeConfigRegistry.INSTANCE.register(modId, ModConfig.Type.valueOf(type), spec);
     }
 }
