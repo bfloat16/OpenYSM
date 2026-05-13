@@ -5,13 +5,12 @@ import com.elfmcys.yesstevemodel.client.event.ReplacePlayerHandRenderEvent;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.neoforge.client.event.RenderArmEvent;
 import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.common.EventBusSubscriber;
 
 @EventBusSubscriber(modid = YesSteveModel.MOD_ID, value = Dist.CLIENT)
-public final class ReplacePlayerHandRenderForgeHook {
+public final class ReplacePlayerHandRenderNeoForgeHook {
 
-    private ReplacePlayerHandRenderForgeHook() {
+    private ReplacePlayerHandRenderNeoForgeHook() {
     }
 
     @SubscribeEvent

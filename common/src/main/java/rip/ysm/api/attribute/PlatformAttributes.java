@@ -6,9 +6,9 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import org.jetbrains.annotations.Nullable;
 
-public final class ForgeAttributes {
+public final class PlatformAttributes {
 
-    private ForgeAttributes() {
+    private PlatformAttributes() {
     }
 
     @ExpectPlatform

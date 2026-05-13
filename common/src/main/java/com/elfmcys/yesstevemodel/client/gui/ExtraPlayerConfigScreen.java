@@ -1,6 +1,6 @@
 package com.elfmcys.yesstevemodel.client.gui;
 
-import com.elfmcys.yesstevemodel.client.gui.button.ConfigCheckBoxForge;
+import com.elfmcys.yesstevemodel.client.gui.button.ConfigCheckBoxFactory;
 import com.elfmcys.yesstevemodel.client.gui.button.FlatColorButton;
 import com.elfmcys.yesstevemodel.client.gui.button.LoadingStateButton;
 import com.elfmcys.yesstevemodel.client.gui.button.RangedSliderWidget;
@@ -35,16 +35,16 @@ public class ExtraPlayerConfigScreen extends Screen {
                 GeneralConfig.SOUND_VOLUME.set(Double.valueOf(getValue()));
             }
         });
-        addRenderableWidget(ConfigCheckBoxForge.create(guiLeft + 5, guiTop + 45, "disable_self_model", GeneralConfig.DISABLE_SELF_MODEL));
-        addRenderableWidget(ConfigCheckBoxForge.create(guiLeft + 5, guiTop + 67, "disable_other_model", GeneralConfig.DISABLE_OTHER_MODEL));
-        addRenderableWidget(ConfigCheckBoxForge.create(guiLeft + 5, guiTop + 89, "print_animation_roulette_msg", GeneralConfig.PRINT_ANIMATION_ROULETTE_MSG));
-        addRenderableWidget(ConfigCheckBoxForge.create(guiLeft + 5, guiTop + 111, "disable_self_hands", GeneralConfig.DISABLE_SELF_HANDS));
-        addRenderableWidget(ConfigCheckBoxForge.create(guiLeft + 5, guiTop + 133, "disable_player_render", ExtraPlayerRenderConfig.DISABLE_PLAYER_RENDER));
-        addRenderableWidget(ConfigCheckBoxForge.create(guiLeft + 5, guiTop + 155, "disable_projectile_model", GeneralConfig.DISABLE_PROJECTILE_MODEL));
-        addRenderableWidget(ConfigCheckBoxForge.create(guiLeft + 5, guiTop + 177, "disable_vehicle_model", GeneralConfig.DISABLE_VEHICLE_MODEL));
-        addRenderableWidget(ConfigCheckBoxForge.create(guiLeft + 5, guiTop + 199, "disable_external_first_person_anim", GeneralConfig.DISABLE_EXTERNAL_FP_ANIM));
-        addRenderableWidget(ConfigCheckBoxForge.create(guiLeft + 5, guiTop + 221, "disable_loading_state_screen", LoadingStateConfig.DISABLE_LOADING_STATE_SCREEN));
-        addRenderableWidget(ConfigCheckBoxForge.create(guiLeft + 5, guiTop + 243, "use_compatibility_renderer", GeneralConfig.USE_COMPATIBILITY_RENDERER));
+        addRenderableWidget(ConfigCheckBoxFactory.create(guiLeft + 5, guiTop + 45, "disable_self_model", GeneralConfig.DISABLE_SELF_MODEL));
+        addRenderableWidget(ConfigCheckBoxFactory.create(guiLeft + 5, guiTop + 67, "disable_other_model", GeneralConfig.DISABLE_OTHER_MODEL));
+        addRenderableWidget(ConfigCheckBoxFactory.create(guiLeft + 5, guiTop + 89, "print_animation_roulette_msg", GeneralConfig.PRINT_ANIMATION_ROULETTE_MSG));
+        addRenderableWidget(ConfigCheckBoxFactory.create(guiLeft + 5, guiTop + 111, "disable_self_hands", GeneralConfig.DISABLE_SELF_HANDS));
+        addRenderableWidget(ConfigCheckBoxFactory.create(guiLeft + 5, guiTop + 133, "disable_player_render", ExtraPlayerRenderConfig.DISABLE_PLAYER_RENDER));
+        addRenderableWidget(ConfigCheckBoxFactory.create(guiLeft + 5, guiTop + 155, "disable_projectile_model", GeneralConfig.DISABLE_PROJECTILE_MODEL));
+        addRenderableWidget(ConfigCheckBoxFactory.create(guiLeft + 5, guiTop + 177, "disable_vehicle_model", GeneralConfig.DISABLE_VEHICLE_MODEL));
+        addRenderableWidget(ConfigCheckBoxFactory.create(guiLeft + 5, guiTop + 199, "disable_external_first_person_anim", GeneralConfig.DISABLE_EXTERNAL_FP_ANIM));
+        addRenderableWidget(ConfigCheckBoxFactory.create(guiLeft + 5, guiTop + 221, "disable_loading_state_screen", LoadingStateConfig.DISABLE_LOADING_STATE_SCREEN));
+        addRenderableWidget(ConfigCheckBoxFactory.create(guiLeft + 5, guiTop + 243, "use_compatibility_renderer", GeneralConfig.USE_COMPATIBILITY_RENDERER));
         addRenderableWidget(new LoadingStateButton(guiLeft + 5, guiTop + 264));
     }
 

@@ -6,13 +6,12 @@ import net.neoforged.api.distmarker.Dist;
 import net.neoforged.neoforge.client.event.RenderHandEvent;
 import net.neoforged.neoforge.client.event.RenderLevelStageEvent;
 import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.common.EventBusSubscriber;
 
 @EventBusSubscriber(modid = YesSteveModel.MOD_ID, value = Dist.CLIENT)
-public final class RenderFirstPlayerForgeHook {
+public final class RenderFirstPlayerNeoForgeHook {
 
-    private RenderFirstPlayerForgeHook() {
+    private RenderFirstPlayerNeoForgeHook() {
     }
 
     @SubscribeEvent

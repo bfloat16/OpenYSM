@@ -7,13 +7,12 @@ import net.neoforged.neoforge.event.entity.living.MobEffectEvent.Added;
 import net.neoforged.neoforge.event.entity.living.MobEffectEvent.Expired;
 import net.neoforged.neoforge.event.entity.living.MobEffectEvent.Remove;
 import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.common.EventBusSubscriber;
 
 @EventBusSubscriber(modid = YesSteveModel.MOD_ID)
-public final class MobEffectForgeHook {
+public final class MobEffectNeoForgeHook {
 
-    private MobEffectForgeHook() {
+    private MobEffectNeoForgeHook() {
     }
 
     @SubscribeEvent

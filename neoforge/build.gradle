@@ -28,9 +28,6 @@ dependencies {
     modImplementation "dev.architectury:architectury-neoforge:$rootProject.architectury_api_version"
     include "dev.architectury:architectury-neoforge:$rootProject.architectury_api_version"
 
-    modImplementation "maven.modrinth:forge-config-api-port:$rootProject.forge_config_api_port_neoforge_version"
-    include "maven.modrinth:forge-config-api-port:$rootProject.forge_config_api_port_neoforge_version"
-
     forgeRuntimeLibrary "com.github.OpenYSM:ImageStream:-SNAPSHOT"
     include "com.github.OpenYSM:ImageStream:-SNAPSHOT"
 

@@ -1,15 +1,15 @@
 package rip.ysm.api.config.neoforge;
 
-import net.minecraftforge.common.ForgeConfigSpec;
+import net.neoforged.fml.ModLoadingContext;
 import net.neoforged.fml.config.ModConfig;
-import fuzs.forgeconfigapiport.neoforge.api.forge.v4.ForgeConfigRegistry;
+import net.neoforged.neoforge.common.ModConfigSpec;
 
 public final class ConfigRegistrationImpl {
 
     private ConfigRegistrationImpl() {
     }
 
-    public static void register(String modId, String type, ForgeConfigSpec spec) {
-        ForgeConfigRegistry.INSTANCE.register(modId, ModConfig.Type.valueOf(type), spec);
+    public static void register(String modId, String type, ModConfigSpec spec) {
+        ModLoadingContext.get().getActiveContainer().registerConfig(ModConfig.Type.valueOf(type), spec);
     }
 }

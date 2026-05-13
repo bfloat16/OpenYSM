@@ -9,9 +9,9 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 
 @EventBusSubscriber(modid = YesSteveModel.MOD_ID)
-public final class ShieldBlockCooldownForgeHook {
+public final class ShieldBlockCooldownNeoForgeHook {
 
-    private ShieldBlockCooldownForgeHook() {
+    private ShieldBlockCooldownNeoForgeHook() {
     }
 
     @SubscribeEvent

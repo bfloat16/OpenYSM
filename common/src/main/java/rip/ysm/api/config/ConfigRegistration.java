@@ -1,7 +1,7 @@
 package rip.ysm.api.config;
 
 import dev.architectury.injectables.annotations.ExpectPlatform;
-import net.minecraftforge.common.ForgeConfigSpec;
+import net.neoforged.neoforge.common.ModConfigSpec;
 
 public final class ConfigRegistration {
 
@@ -9,7 +9,7 @@ public final class ConfigRegistration {
     }
 
     @ExpectPlatform
-    public static void register(String modId, String type, ForgeConfigSpec spec) {
+    public static void register(String modId, String type, ModConfigSpec spec) {
         throw new AssertionError();
     }
 }

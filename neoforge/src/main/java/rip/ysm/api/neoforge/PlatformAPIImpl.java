@@ -12,6 +12,6 @@ public final class PlatformAPIImpl {
     }
 
     public static String getPlatformName() {
-        return "Forge";
+        return "NeoForge";
     }
 }

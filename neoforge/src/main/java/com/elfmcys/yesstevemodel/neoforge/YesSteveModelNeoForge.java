@@ -8,13 +8,13 @@ import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import rip.ysm.api.network.neoforge.YSMChannelImpl;
 
 @Mod(YesSteveModel.MOD_ID)
-public final class YesSteveModelForge {
+public final class YesSteveModelNeoForge {
 
-    public YesSteveModelForge(IEventBus modBus) {
+    public YesSteveModelNeoForge(IEventBus modBus) {
         YSMAttachments.ATTACHMENT_TYPES.register(modBus);
         // NetworkHandler.init() must run BEFORE RegisterPayloadHandlersEvent
         NetworkHandler.init();
-        modBus.addListener(YesSteveModelForge::onRegisterPayloads);
+        modBus.addListener(YesSteveModelNeoForge::onRegisterPayloads);
         YesSteveModel.init();
     }
 

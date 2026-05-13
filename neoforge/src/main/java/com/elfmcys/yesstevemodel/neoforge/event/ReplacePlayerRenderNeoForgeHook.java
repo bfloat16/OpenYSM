@@ -5,13 +5,12 @@ import com.elfmcys.yesstevemodel.client.event.ReplacePlayerRenderEvent;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.neoforge.client.event.RenderPlayerEvent;
 import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.common.EventBusSubscriber;
 
 @EventBusSubscriber(modid = YesSteveModel.MOD_ID, value = Dist.CLIENT)
-public final class ReplacePlayerRenderForgeHook {
+public final class ReplacePlayerRenderNeoForgeHook {
 
-    private ReplacePlayerRenderForgeHook() {
+    private ReplacePlayerRenderNeoForgeHook() {
     }
 
     @SubscribeEvent

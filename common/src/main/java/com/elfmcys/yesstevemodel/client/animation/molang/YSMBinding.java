@@ -51,7 +51,7 @@ import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import dev.architectury.platform.Platform;
-import rip.ysm.api.attribute.ForgeAttributes;
+import rip.ysm.api.attribute.PlatformAttributes;
 
 import java.util.Collection;
 import java.util.Comparator;
@@ -153,12 +153,12 @@ public class YSMBinding extends ContextBinding {
         playerEntityVar("movement_speed", ctx -> ctx.entity().getAttributeValue(Attributes.MOVEMENT_SPEED));
         playerEntityVar("knockback_resistance", ctx -> ctx.entity().getAttributeValue(Attributes.KNOCKBACK_RESISTANCE));
         playerEntityVar("luck", ctx -> ctx.entity().getAttributeValue(Attributes.LUCK));
-        playerEntityVar("block_reach", ctx -> ForgeAttributes.getValue(ctx.entity(), ForgeAttributes.blockReach(), 4.5D));
-        playerEntityVar("entity_reach", ctx -> ForgeAttributes.getValue(ctx.entity(), ForgeAttributes.entityReach(), 3.0D));
-        playerEntityVar("swim_speed", ctx -> ForgeAttributes.getValue(ctx.entity(), ForgeAttributes.swimSpeed(), 1.0D));
-        playerEntityVar("entity_gravity", ctx -> ForgeAttributes.getValue(ctx.entity(), ForgeAttributes.entityGravity(), 0.08D));
-        playerEntityVar("step_height_addition", ctx -> ForgeAttributes.getValue(ctx.entity(), ForgeAttributes.stepHeightAddition(), 0.0D));
-        playerEntityVar("nametag_distance", ctx -> ForgeAttributes.getValue(ctx.entity(), ForgeAttributes.nametagDistance(), 64.0D));
+        playerEntityVar("block_reach", ctx -> PlatformAttributes.getValue(ctx.entity(), PlatformAttributes.blockReach(), 4.5D));
+        playerEntityVar("entity_reach", ctx -> PlatformAttributes.getValue(ctx.entity(), PlatformAttributes.entityReach(), 3.0D));
+        playerEntityVar("swim_speed", ctx -> PlatformAttributes.getValue(ctx.entity(), PlatformAttributes.swimSpeed(), 1.0D));
+        playerEntityVar("entity_gravity", ctx -> PlatformAttributes.getValue(ctx.entity(), PlatformAttributes.entityGravity(), 0.08D));
+        playerEntityVar("step_height_addition", ctx -> PlatformAttributes.getValue(ctx.entity(), PlatformAttributes.stepHeightAddition(), 0.0D));
+        playerEntityVar("nametag_distance", ctx -> PlatformAttributes.getValue(ctx.entity(), PlatformAttributes.nametagDistance(), 64.0D));
         playerEntityVar("in_shield_block_cooldown", YSMBinding::isInShieldBlockCooldown);
 
         clientPlayerEntityVar("elytra_rot_x", ctx -> Math.toDegrees(ctx.entity().elytraRotX));

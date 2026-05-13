@@ -21,9 +21,9 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 
 @EventBusSubscriber(modid = YesSteveModel.MOD_ID, value = Dist.CLIENT, bus = EventBusSubscriber.Bus.MOD)
-public final class ForgeClientSetupHooks {
+public final class NeoForgeClientSetupHooks {
 
-    private ForgeClientSetupHooks() {
+    private NeoForgeClientSetupHooks() {
     }
 
     @SubscribeEvent

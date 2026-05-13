@@ -37,4 +37,4 @@ side = "BOTH"
 config = "yes_steve_model.mixins.json"
 
 [[mixins]]
-config = "yes_steve_model_forge.mixins.json"
+config = "yes_steve_model_neoforge.mixins.json"

@@ -1,41 +1,43 @@
-package rip.ysm.api.attribute.fabric;
+package rip.ysm.api.attribute.neoforge;
 
 import net.minecraft.core.Holder;
 import net.minecraft.world.entity.ai.attributes.Attribute;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.neoforged.neoforge.common.NeoForgeMod;
 import org.jetbrains.annotations.Nullable;
 
-public final class ForgeAttributesImpl {
+public final class PlatformAttributesImpl {
 
-    private ForgeAttributesImpl() {
+    private PlatformAttributesImpl() {
     }
 
     @Nullable
     public static Holder<Attribute> blockReach() {
-        return null;
+        return Attributes.BLOCK_INTERACTION_RANGE;
     }
 
     @Nullable
     public static Holder<Attribute> entityReach() {
-        return null;
+        return Attributes.ENTITY_INTERACTION_RANGE;
     }
 
     @Nullable
     public static Holder<Attribute> swimSpeed() {
-        return null;
+        return NeoForgeMod.SWIM_SPEED;
     }
 
     @Nullable
     public static Holder<Attribute> entityGravity() {
-        return null;
+        return Attributes.GRAVITY;
     }
 
     @Nullable
     public static Holder<Attribute> stepHeightAddition() {
-        return null;
+        return Attributes.STEP_HEIGHT;
     }
 
     @Nullable
     public static Holder<Attribute> nametagDistance() {
-        return null;
+        return NeoForgeMod.NAMETAG_DISTANCE;
     }
 }
